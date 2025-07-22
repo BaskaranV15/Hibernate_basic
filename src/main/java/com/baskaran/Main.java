@@ -24,9 +24,20 @@ public class Main {
                           .buildSessionFactory();
         Session session=sf.openSession();
 
+        // select - get
+
+        Student stud=null;
+        stud= session.get(Student.class,6); // where it return some value
+        System.out.println(stud);
+
+
+        /* insert - persist
         Transaction transaction=session.beginTransaction();
+
         session.persist(stu);
         transaction.commit();
+         */
+
         sf.close();
     }
 }
