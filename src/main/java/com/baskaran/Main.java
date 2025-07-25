@@ -10,9 +10,9 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
         Student stu=new Student();
-        stu.setsName("Baskaran");
-        stu.setRollNo(6);
-        stu.setsAge(20);
+//        stu.setsName("Baskaran");
+//        stu.setRollNo(6);
+//        stu.setsAge(20);
 
 
 //        Configuration cfg=new Configuration();
@@ -38,11 +38,22 @@ public class Main {
         transaction.commit();
          */
 
+        /*
         // Update
         Transaction transaction=session.beginTransaction();
         session.merge(stu);
+        session.close();
+        sf.close();
+         */
+
+        //Delete
+
+        stu= session.get(Student.class,6);
+        Transaction transaction=session.beginTransaction();
+        session.remove(stu);
         transaction.commit();
         session.close();
         sf.close();
+        System.out.println(stu);
     }
 }
