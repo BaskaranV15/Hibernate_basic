@@ -2,8 +2,10 @@ package com.baskaran;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity(name="Learners_Table")
+@Entity
+@Table(name = "Learners_table")
 public class Learner {
 
     @Id
