@@ -9,51 +9,20 @@ import org.hibernate.cfg.Configuration;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Student stu=new Student();
-//        stu.setsName("Baskaran");
-//        stu.setRollNo(6);
-//        stu.setsAge(20);
 
+        Learner learner=new Learner();
+        learner.setLid(1);
+        learner.setLname("Arun");
+        learner.setTech("Java");
 
-//        Configuration cfg=new Configuration();
-//        cfg.addAnnotatedClass(com.baskaran.Student.class);
-//        cfg.configure();
         SessionFactory sf=new Configuration()
-                          .addAnnotatedClass(com.baskaran.Student.class)
-                          .configure()
-                          .buildSessionFactory();
+                .addAnnotatedClass(com.baskaran.Learner.class)
+                .configure()
+                .buildSessionFactory();
         Session session=sf.openSession();
-        /*
-        // select - get
-
-        Student stud=null;
-        stud= session.get(Student.class,6); // where it return some value
-        System.out.println(stud);
-        */
-
-        /* insert - persist
         Transaction transaction=session.beginTransaction();
-
-        session.persist(stu);
+        session.persist(learner);
         transaction.commit();
-         */
 
-        /*
-        // Update
-        Transaction transaction=session.beginTransaction();
-        session.merge(stu);
-        session.close();
-        sf.close();
-         */
-
-        //Delete
-
-        stu= session.get(Student.class,6);
-        Transaction transaction=session.beginTransaction();
-        session.remove(stu);
-        transaction.commit();
-        session.close();
-        sf.close();
-        System.out.println(stu);
     }
 }
