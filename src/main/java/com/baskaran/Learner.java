@@ -1,5 +1,6 @@
 package com.baskaran;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,6 +11,7 @@ public class Learner {
 
     @Id
     int lid;
+    @Column(name = "First_name")
     String lname;
     String tech;
 
