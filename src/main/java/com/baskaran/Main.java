@@ -10,10 +10,16 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
 
+        Laptop laptop=new Laptop();
+        laptop.setModel("I5");
+        laptop.setName("HP");
+        laptop.setRam(8);
+
         Learner learner=new Learner();
         learner.setLid(1);
         learner.setLname("Arun");
         learner.setTech("Java");
+        learner.setLaptop(laptop);
 
         SessionFactory sf=new Configuration()
                 .addAnnotatedClass(com.baskaran.Learner.class)

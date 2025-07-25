@@ -3,15 +3,13 @@ package com.baskaran;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Learners_table")
 public class Learner {
 
     @Id
     int lid;
-    @Column(name = "First_name")
     String lname;
-    @Transient
     String tech;
+    Laptop laptop;
 
     public int getLid() {
         return lid;
@@ -37,12 +35,21 @@ public class Learner {
         this.tech = tech;
     }
 
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
+
     @Override
     public String toString() {
         return "Learner{" +
                 "lid=" + lid +
                 ", lname='" + lname + '\'' +
                 ", tech='" + tech + '\'' +
+                ", laptop=" + laptop +
                 '}';
     }
 }
