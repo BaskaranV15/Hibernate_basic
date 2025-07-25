@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
         Student stu=new Student();
-        stu.setsName("baskaran");
+        stu.setsName("Baskaran");
         stu.setRollNo(6);
         stu.setsAge(20);
 
@@ -23,13 +23,13 @@ public class Main {
                           .configure()
                           .buildSessionFactory();
         Session session=sf.openSession();
-
+        /*
         // select - get
 
         Student stud=null;
         stud= session.get(Student.class,6); // where it return some value
         System.out.println(stud);
-
+        */
 
         /* insert - persist
         Transaction transaction=session.beginTransaction();
@@ -38,6 +38,11 @@ public class Main {
         transaction.commit();
          */
 
+        // Update
+        Transaction transaction=session.beginTransaction();
+        session.merge(stu);
+        transaction.commit();
+        session.close();
         sf.close();
     }
 }
