@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Laptop laptop=new Laptop();
+        laptop.setLid(1);
         laptop.setModel("I5");
         laptop.setName("HP");
         laptop.setRam(8);
@@ -23,10 +24,13 @@ public class Main {
 
         SessionFactory sf=new Configuration()
                 .addAnnotatedClass(com.baskaran.Learner.class)
+                .addAnnotatedClass(com.baskaran.Laptop.class)
                 .configure()
                 .buildSessionFactory();
         Session session=sf.openSession();
         Transaction transaction=session.beginTransaction();
+
+        session.persist(laptop);
         session.persist(learner);
         transaction.commit();
 

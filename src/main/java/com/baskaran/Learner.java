@@ -9,6 +9,7 @@ public class Learner {
     int lid;
     String lname;
     String tech;
+    @OneToOne
     Laptop laptop;
 
     public int getLid() {
