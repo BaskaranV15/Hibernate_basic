@@ -34,7 +34,10 @@ public class Main {
 //
 //        transaction.commit();
 
-        Query query=session.createQuery("from Laptop where ram=8"); // Entity names are case-sensitive in HQL
+        String name="HP";
+        Query query=session.createQuery("from Laptop where name like ?1"); // Entity names are case-sensitive in HQL
+
+        query.setParameter(1,name);
         List<Laptop> l=query.getResultList();
         System.out.println(l);
 //        Learner l1=session.get(Learner.class,1);
