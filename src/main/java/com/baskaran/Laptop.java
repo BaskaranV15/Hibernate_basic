@@ -2,6 +2,8 @@ package com.baskaran;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Laptop {
 
@@ -10,16 +12,16 @@ public class Laptop {
     private String name;
     private String model;
     private int ram;
-    @ManyToOne
-    private Learner learner;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Learner> learners;
 
 
-    public Learner getLearner() {
-        return learner;
+    public List<Learner> getLearners() {
+        return learners;
     }
 
-    public void setLearner(Learner learner) {
-        this.learner = learner;
+    public void setLearners(List<Learner> learners) {
+        this.learners = learners;
     }
 
     public int getLid() {
@@ -61,7 +63,7 @@ public class Laptop {
                 ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", learner=" + learner +
+                ", learners=" + learners +
                 '}';
     }
 }
