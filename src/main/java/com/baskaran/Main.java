@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Arrays;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -16,11 +18,17 @@ public class Main {
         laptop.setName("HP");
         laptop.setRam(8);
 
+        Laptop laptop2=new Laptop();
+        laptop2.setLid(2);
+        laptop2.setModel("I7");
+        laptop2.setName("Dell");
+        laptop2.setRam(16);
+
         Learner learner=new Learner();
-        learner.setLid(1);
+        learner.setLearnerId(1);
         learner.setLname("Arun");
         learner.setTech("Java");
-        learner.setLaptop(laptop);
+        learner.setLaptops(Arrays.asList(laptop,laptop2));
 
         SessionFactory sf=new Configuration()
                 .addAnnotatedClass(com.baskaran.Learner.class)
@@ -31,8 +39,12 @@ public class Main {
         Transaction transaction=session.beginTransaction();
 
         session.persist(laptop);
+        session.persist(laptop2);
         session.persist(learner);
         transaction.commit();
+
+        Learner l =session.get(Learner.class,1);
+        System.out.println(l);
 
     }
 }

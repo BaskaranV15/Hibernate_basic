@@ -2,22 +2,24 @@ package com.baskaran;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Learner {
 
     @Id
-    int lid;
+    int learnerId;
     String lname;
     String tech;
-    @OneToOne
-    Laptop laptop;
+    @OneToMany
+    List<Laptop> laptops;
 
-    public int getLid() {
-        return lid;
+    public int getLearnerId() {
+        return learnerId;
     }
 
-    public void setLid(int lid) {
-        this.lid = lid;
+    public void setLearnerId(int learnerId) {
+        this.learnerId = learnerId;
     }
 
     public String getLname() {
@@ -36,21 +38,21 @@ public class Learner {
         this.tech = tech;
     }
 
-    public Laptop getLaptop() {
-        return laptop;
+    public List<Laptop> getLaptops() {
+        return laptops;
     }
 
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
     }
 
     @Override
     public String toString() {
         return "Learner{" +
-                "lid=" + lid +
+                "learnerId=" + learnerId +
                 ", lname='" + lname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
+                ", laptops=" + laptops +
                 '}';
     }
 }
