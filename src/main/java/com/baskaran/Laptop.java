@@ -1,8 +1,6 @@
 package com.baskaran;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Laptop {
@@ -12,6 +10,17 @@ public class Laptop {
     private String name;
     private String model;
     private int ram;
+    @ManyToOne
+    private Learner learner;
+
+
+    public Learner getLearner() {
+        return learner;
+    }
+
+    public void setLearner(Learner learner) {
+        this.learner = learner;
+    }
 
     public int getLid() {
         return lid;
@@ -52,6 +61,7 @@ public class Laptop {
                 ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
+                ", learner=" + learner +
                 '}';
     }
 }

@@ -11,7 +11,7 @@ public class Learner {
     int learnerId;
     String lname;
     String tech;
-    @OneToMany
+    @OneToMany(mappedBy = "learner") //name of mapped object in mapped class
     List<Laptop> laptops;
 
     public int getLearnerId() {

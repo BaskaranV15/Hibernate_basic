@@ -30,6 +30,9 @@ public class Main {
         learner.setTech("Java");
         learner.setLaptops(Arrays.asList(laptop,laptop2));
 
+        laptop.setLearner(learner);
+        laptop2.setLearner(learner);
+
         SessionFactory sf=new Configuration()
                 .addAnnotatedClass(com.baskaran.Learner.class)
                 .addAnnotatedClass(com.baskaran.Laptop.class)
@@ -43,8 +46,9 @@ public class Main {
         session.persist(learner);
         transaction.commit();
 
-        Learner l =session.get(Learner.class,1);
-        System.out.println(l);
+//        Learner l1=session.get(Learner.class,1);
+//        System.out.println(l1);
+
 
     }
 }
