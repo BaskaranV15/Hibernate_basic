@@ -12,17 +12,17 @@ public class Laptop {
     private String name;
     private String model;
     private int ram;
-    @ManyToMany(mappedBy = "laptops")
-    private List<Learner> learners;
+//    @ManyToMany(mappedBy = "laptops")
+//    private List<Learner> learners;
 
 
-    public List<Learner> getLearners() {
-        return learners;
-    }
-
-    public void setLearners(List<Learner> learners) {
-        this.learners = learners;
-    }
+//    public List<Learner> getLearners() {
+//        return learners;
+//    }
+//
+//    public void setLearners(List<Learner> learners) {
+//        this.learners = learners;
+//    }
 
     public int getLid() {
         return lid;
@@ -63,7 +63,7 @@ public class Laptop {
                 ", name='" + name + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", learners=" + learners +
+                //", learners=" + learners +
                 '}';
     }
 }

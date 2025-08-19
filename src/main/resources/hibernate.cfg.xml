@@ -9,7 +9,7 @@
         <property name="show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 <!--        <mapping resource="your/package/YourEntity.hbm.xml"/>-->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!--     <property name="hibernate.hbm2ddl.auto">update</property>
         if you suppose give a 'create it create a every time a new table drop the previous one too   -->
     </session-factory>
